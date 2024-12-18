@@ -1,0 +1,86 @@
+Il y à 5 table customers, order_items, orders, payments, products
+Dans toute les tables les element dedant on tous le meme type de donné varchar(255)
+
+les relations 
+
+orders many to one customers
+order_items many to one orders
+order_items one to one product
+payments one to one orders
+
+
+SQL command line 
+
+-Accés a mysql: 
+
+mysql -u root -p
+
+-voir les databases: 
+
+SHOW DATABASES;
+
+-utiliser une database: 
+
+USE kinternship2025:
+
+-Montrer les tables:
+
+SHOW TABLES;
+
+Regarder dans une table:
+
+SELECT * FROM table_name
+
+Regarder les type de donnés dans un table:
+
+SHOW FROM table_name FROM db_name
+
+
+diagram BDD : https://dbdiagram.io/d/6762d2d184c74107271797bd
+
+Sctructure de donnée de la BDD
+
+Table customers {
+  customer_id  varchar(255) [primary key]
+  first_name  varchar(255)
+  last_name  varchar(255)
+  email  varchar(255)
+  phone  varchar(255)
+  address  varchar(255)
+  city  varchar(255)
+  state  varchar(255)
+  postal_code  varchar(255)
+  country  varchar(255)
+}
+
+Table order_items {
+  order_id varchar(255)
+  product_id varchar(255)
+  quantity varchar(255)
+  price varchar(255)
+}
+
+Table orders {
+  order_id varchar(255) [primary key]
+  customer_id varchar(255)
+  order_date varchar(255)
+  status varchar(255)
+  total_amount varchar(255)
+}
+
+Table payments {
+  order_id varchar(255)
+  payment_date varchar(255)
+  amount varchar(255) 
+  payment_method varchar(255)
+  status varchar(255)
+}
+
+Table products {
+  product_id varchar(255) [primary key]
+  product_name varchar(255)
+  description varchar(255) 
+  price varchar(255)
+  stock varchar(255)
+  category_id varchar(255)
+}
