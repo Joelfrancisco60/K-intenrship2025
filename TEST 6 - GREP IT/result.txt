@@ -1,0 +1,1 @@
+grep -i "ERROR" system.log | grep "2024-11-28" | cut -d " " -f 2,4-7
